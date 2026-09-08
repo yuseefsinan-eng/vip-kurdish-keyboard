@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadDisplayName</key>
+    <string>VIP Kurdish Keyboard - Yousef Sinan</string>
+    <key>PayloadIdentifier</key>
+    <string>com.yousefsinan.vipkeyboard.profile</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>A1B2C3D4-E5F6-7890-ABCD-EF0123456789</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadOrganization</key>
+    <string>Yousef Sinan - VIP Keyboard</string>
+    
+    <!-- لێرەدا ئیکۆنا پروفایلی ب شێوازێ Base64 دگەل logo.png گرێدایە -->
+    <key>PayloadIcon</key>
+    <data>
+    iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
+    </data>
+
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>VIP Kurdish Keyboard Custom Settings linked with logo.png</string>
+            <key>PayloadDisplayName</key>
+            <string>VIP Kurdish Keyboard</string>
+            <key>PayloadIdentifier</key>
+            <string>com.yousefsinan.keyboard.settings</string>
+            <key>PayloadType</key>
+            <string>com.apple.managed.configuration</string>
+            <key>PayloadUUID</key>
+            <string>B2C3D4E5-F6A7-8901-BCDE-F0123456789A</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+</dict>
+</plist>
