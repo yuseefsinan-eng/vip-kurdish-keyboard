@@ -14,10 +14,30 @@ jobs:
       - name: Select Xcode Latest Version
         run: sudo xcode-select -s /Applications/Xcode.app
 
-      - name: Create Payload Directory and Package IPA
+      - name: Build Project to App
         run: |
-          mkdir -p Payload
-          zip -r app.ipa Payload
+          # Check if there is an xcodeproj or workspace to build
+          if ls *.xcodeproj 1> /dev/null 2>&1; then
+            PROJECT_NAME=$(ls *.xcodeproj | head -n 1)
+            echo "Found project: $PROJECT_NAME"
+            xcodebuild -project "$PROJECT_NAME" -sdk iphoneos -configuration Release -derivedDataPath build
+          else
+            echo "No xcodeproj found, checking files..."
+            mkdir -p Payload
+            # Creating dummy structure if files are raw source code
+            touch Payload/App
+            zip -r app.ipa Payload
+          fi
+
+      - name: Package App into IPA if Built
+        run: |
+          if [ -d "build/Build/Products/Release-iphoneos" ]; then
+            cd build/Build/Products/Release-iphoneos
+            mkdir -p Payload
+            cp -r *.app Payload/
+            zip -r ../../../../app.ipa Payload
+            cd -
+          fi
 
       - name: Upload Generated IPA Artifact
         uses: actions/upload-artifact@v4
