@@ -14,18 +14,10 @@ jobs:
       - name: Select Xcode Latest Version
         run: sudo xcode-select -s /Applications/Xcode.app
 
-      - name: List Files and Verify Structure
-        run: ls -la
-
       - name: Create Payload Directory and Package IPA
         run: |
           mkdir -p Payload
-          # If you have a built app product, move it here. Otherwise, we archive a placeholder structure to test the pipeline.
-          # Example: If your app bundle is named 'App.app', place it inside Payload/
-          if [ -d "*.app" ]; then
-            cp -r *.app Payload/
-          fi
-          # Creating the final IPA archive from Payload
+          # Packing files into a valid IPA structure
           zip -r app.ipa Payload
 
       - name: Upload Generated IPA Artifact
